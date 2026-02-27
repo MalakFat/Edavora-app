@@ -1,0 +1,85 @@
+.logout {
+    -fx-background-image: url("logout.png");
+    -fx-background-size: cover;
+}
+.homescreen {
+    -fx-background-image: url("home.png");
+    -fx-background-size: cover;
+}
+.search {
+    -fx-background-image: url("search (2).png");
+    -fx-background-size: cover;
+}
+.studant {
+    -fx-background-image: url("studying.png");
+    -fx-background-size: cover;
+}
+.top {
+    -fx-background-image: url("top.png");
+    -fx-background-size: cover;
+}
+.logout {
+    -fx-background-image: url("logout.png");
+    -fx-background-size: cover;
+}
+.massage {
+    -fx-background-image: url("massege.png");
+    -fx-background-size: cover;
+}
+.profile {
+    -fx-background-image: url("profile.png");
+    -fx-background-size: cover;
+}
+.teacher {
+    -fx-background-image: url("teacher.png");
+    -fx-background-size: cover;
+}
+.split-pane > .split-pane-divider {
+    -fx-background-color: transparent; 
+    -fx-padding: 0; 
+}
+
+.split-pane:resizable {
+    -fx-opacity: 0; 
+}
+
+.photo {
+    -fx-background-image: url("image.png");
+    -fx-background-size: cover;
+}
+
+.next {
+    -fx-background-image: url("next(1).png");
+    -fx-background-size: cover;
+}
+
+.stud {
+    -fx-background-image: url("p.png");
+    -fx-background-size: cover;
+}
+.bookk {
+    -fx-background-image: url("bookk.png");
+    -fx-background-size: cover;
+}
+
+.t {
+    -fx-background-image: url("training.png");
+    -fx-background-size: cover;
+}
+
+.plus {
+    -fx-background-image: url("pluss.png");
+    -fx-background-size: cover;
+}
+
+.clock {
+    -fx-background-image: url("clock.png");
+    -fx-background-size: cover;
+}
+
+.courseadd{
+    -fx-background-image: url("add.png");
+    -fx-background-size: cover;
+}
+
+

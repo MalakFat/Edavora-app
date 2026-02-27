@@ -1,0 +1,198 @@
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
+<jasperReport name="Waves_Landscape_1" language="java" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="e115bc59-fd0f-446b-a585-04725e27d7f0">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="edvora"/>
+	<style name="Title" fontName="Arial" fontSize="26.0" bold="true"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18.0"/>
+	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12.0" bold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12.0"/>
+	<query language="SQL"><![CDATA[SELECT 
+    MAX(c.name_course) AS "Course name",
+    MAX(c.max_capacity) AS "Max Capacity",
+    TO_CHAR(MAX(c.start_time), 'HH24:MI') || ' - ' || TO_CHAR(MAX(c.end_time), 'HH24:MI') AS "Course Time",
+    MAX(u.firstname || ' ' || u.lastname) AS "Teacher name",
+    COUNT(DISTINCT s.student_email) AS "Enrolled student",
+    COUNT(DISTINCT b.student_email) AS "Banned student"
+FROM public.course c
+INNER JOIN public."User" u 
+    ON u.email = c.email_teacher
+LEFT JOIN public.study s 
+    ON s.course_id = c.course_id
+LEFT JOIN public.banned b
+    ON b.course_id = c.course_id
+GROUP BY c.course_id
+ORDER BY "Course name"
+]]></query>
+	<field name="Course name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Course name"/>
+		<property name="com.jaspersoft.studio.field.label" value="Course name"/>
+	</field>
+	<field name="Max Capacity" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="Max Capacity"/>
+		<property name="com.jaspersoft.studio.field.label" value="Max Capacity"/>
+	</field>
+	<field name="Course Time" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Course Time"/>
+		<property name="com.jaspersoft.studio.field.label" value="Course Time"/>
+	</field>
+	<field name="Teacher name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Teacher name"/>
+		<property name="com.jaspersoft.studio.field.label" value="Teacher name"/>
+	</field>
+	<field name="Enrolled student" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="Enrolled student"/>
+		<property name="com.jaspersoft.studio.field.label" value="Enrolled student"/>
+	</field>
+	<field name="Banned student" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="Banned student"/>
+		<property name="com.jaspersoft.studio.field.label" value="Banned student"/>
+	</field>
+	<group name="Group1">
+		<expression><![CDATA[$F{Course name}]]></expression>
+		<groupHeader>
+			<band height="43">
+				<element kind="textField" uuid="8caf7870-b3f6-4e56-b258-6eaf7c7087bd" x="143" y="13" width="657" height="24" forecolor="#000000" bold="true" style="SubTitle">
+					<expression><![CDATA[$F{Course name}]]></expression>
+				</element>
+				<element kind="rectangle" uuid="2ec98758-259b-469b-aa96-24281a2fe5f2" mode="Opaque" x="97" y="13" width="36" height="24" forecolor="#816997" backcolor="#CCCCCC"/>
+				<element kind="textField" uuid="b0010b0a-4610-4189-b165-1d81fae4ae96" x="111" y="18" width="25" height="18" fontSize="12.0">
+					<expression><![CDATA[$V{REPORT_COUNT} +1]]></expression>
+				</element>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="30"/>
+		</groupFooter>
+	</group>
+	<background height="575" splitType="Stretch">
+		<element kind="image" uuid="81068569-10bf-4c43-a338-3658f65c2990" positionType="Float" x="-20" y="82" width="103" height="409" vImageAlign="Bottom">
+			<expression><![CDATA["src/main/java/application/gradient_image.png"]]></expression>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+		</element>
+		<element kind="frame" uuid="8d98a021-68da-4280-8204-570b64e7d31a" mode="Opaque" x="-20" y="475" width="103" height="100" backcolor="rgba(129, 105, 151, 0.9764706)">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<element kind="textField" uuid="78603c30-8aca-408a-8a78-2c52256230e5" x="-2" y="4" width="103" height="73" forecolor="#000000" fontSize="58.0" bold="true" hTextAlign="Center" vTextAlign="Middle" style="Column header">
+				<expression><![CDATA[$V{PAGE_NUMBER}]]></expression>
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			</element>
+			<element kind="textField" uuid="b8fa1477-1e85-44c1-b634-78e77eb80ff6" x="0" y="77" width="103" height="20" forecolor="#000000" fontSize="16.0" evaluationTime="Report" bold="false" hTextAlign="Center" style="Column header">
+				<expression><![CDATA[$V{PAGE_NUMBER}]]></expression>
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				<box leftPadding="4" rightPadding="4" style="Column header"/>
+			</element>
+			<element kind="line" uuid="2973f102-20df-4008-9176-87decc465a3c" mode="Transparent" x="42" y="73" width="20" height="1" backcolor="#FFFFFF"/>
+		</element>
+	</background>
+	<title height="104" splitType="Stretch">
+		<element kind="staticText" uuid="1dcadd54-7d50-4470-85ed-189e4d910b25" x="0" y="0" width="802" height="67" forecolor="#382157" fontSize="54.0" bold="false" hTextAlign="Right" vTextAlign="Middle" style="Title">
+			<text><![CDATA[EDVORA]]></text>
+		</element>
+		<element kind="staticText" uuid="862cb50c-5a5e-4906-a495-226e25115fb6" x="232" y="67" width="568" height="37" fontSize="26.0" hTextAlign="Right" style="SubTitle">
+			<text><![CDATA[Course Report]]></text>
+		</element>
+	</title>
+	<pageHeader splitType="Stretch"/>
+	<columnHeader height="25" splitType="Stretch">
+		<element kind="frame" uuid="35d90a9b-bb7e-4ec4-bfa2-68be1967d6b2" mode="Opaque" x="97" y="5" width="705" height="20" backcolor="#A087B2">
+			<element kind="staticText" uuid="0c5baff9-5e0f-4fd2-9b13-8f1e8bf6aa31" x="278" y="3" width="141" height="15" style="Column header">
+				<text><![CDATA[Max Capacity]]></text>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="618f2d2e-8d7f-47b1-9206-bb6a7c18ee84"/>
+			</element>
+			<element kind="staticText" uuid="046d2ff1-f3c1-4a51-815b-7f2c38c8f5c5" x="141" y="3" width="141" height="15" style="Column header">
+				<text><![CDATA[Course Time]]></text>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="999674c8-d139-47d6-99ed-dcced00b0b9f"/>
+			</element>
+			<element kind="staticText" uuid="3b0f77e9-b92f-4194-b4d1-26fc67d4985c" x="4" y="4" width="141" height="15" style="Column header">
+				<text><![CDATA[Teacher name]]></text>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5ae25ba8-3b27-40a1-acf6-7c453bddbe0f"/>
+			</element>
+			<element kind="staticText" uuid="e6433ef8-c5a4-4f8e-9016-c99c714d55a3" x="423" y="3" width="141" height="15" style="Column header">
+				<text><![CDATA[Enrolled student]]></text>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cd3ad9f0-7fbd-4d24-a485-c933807d5243"/>
+			</element>
+			<element kind="staticText" uuid="563f0940-6236-4a15-bc81-cbfab2568380" x="564" y="3" width="141" height="15" style="Column header">
+				<text><![CDATA[Banned student]]></text>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ca104d00-61dd-453f-ab10-ca78c75d1a53"/>
+			</element>
+			<box>
+				<pen lineWidth="2.0" lineColor="#382157"/>
+			</box>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<element kind="frame" uuid="89a3da05-fdde-4ffe-965f-cc476f72e3ab" x="97" y="1" width="705" height="15">
+				<element kind="textField" uuid="fff3c870-3c05-49b8-95e8-adf9b4bc543c" x="248" y="2" width="141" height="15" hTextAlign="Center" style="Detail">
+					<expression><![CDATA[$F{Max Capacity}]]></expression>
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="618f2d2e-8d7f-47b1-9206-bb6a7c18ee84"/>
+				</element>
+				<element kind="textField" uuid="a3525467-038f-4f3c-bf39-c0f696030636" x="141" y="2" width="141" height="15" style="Detail">
+					<expression><![CDATA[$F{Course Time}]]></expression>
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="999674c8-d139-47d6-99ed-dcced00b0b9f"/>
+				</element>
+				<element kind="textField" uuid="8ba7bdcf-8ae3-4f23-810b-a041d1138cb7" x="0" y="2" width="141" height="15" style="Detail">
+					<expression><![CDATA[$F{Teacher name}]]></expression>
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5ae25ba8-3b27-40a1-acf6-7c453bddbe0f"/>
+				</element>
+				<element kind="textField" uuid="a5047405-32b6-46a7-b96e-3194fbe621a4" x="411" y="2" width="141" height="15" markup="html" hTextAlign="Center" style="Detail">
+					<expression><![CDATA[$F{Enrolled student}]]></expression>
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cd3ad9f0-7fbd-4d24-a485-c933807d5243"/>
+				</element>
+				<element kind="textField" uuid="98bed934-735a-402d-9d3f-81c456524ada" x="548" y="2" width="141" height="15" hTextAlign="Center" style="Detail">
+					<expression><![CDATA[$F{Banned student}]]></expression>
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ca104d00-61dd-453f-ab10-ca78c75d1a53"/>
+				</element>
+			</element>
+			<element kind="line" uuid="e5f21b91-7f24-498e-97a1-0e93db9225a4" positionType="FixRelativeToBottom" x="97" y="16" width="705" height="1">
+				<pen lineWidth="0.5" lineColor="#999999"/>
+			</element>
+		</band>
+	</detail>
+	<columnFooter splitType="Stretch"/>
+	<pageFooter height="39" splitType="Stretch">
+		<element kind="textField" uuid="95484ca0-40b4-4752-95d8-1afbc33c820b" x="671" y="0" width="131" height="20" forecolor="#000000" fontSize="12.0" pattern="EEEEE dd MMMMM yyyy" bold="false" hTextAlign="Right" style="Column header">
+			<expression><![CDATA[new java.util.Date()]]></expression>
+		</element>
+		<element kind="staticText" uuid="0ec52099-dcd7-42f4-8baa-f3874f05208a" x="96" y="0" width="267" height="20" fontSize="12.0">
+			<text><![CDATA[Course Report]]></text>
+		</element>
+	</pageFooter>
+	<summary height="575" splitType="Stretch">
+		<element kind="chart" chartType="bar" uuid="2b982031-d024-4f24-9d5e-093d304d3059" key="" stretchType="ElementGroupHeight" mode="Transparent" x="120" y="90" width="659" height="390" showLegend="true" evaluationTime="Report" linkType="None" linkTarget="Self" printRepeatedValues="false" removeLineWhenBlank="true" style="Detail">
+			<dataset kind="category" resetType="Report">
+				<series>
+					<seriesExpression><![CDATA[$F{Course name}]]></seriesExpression>
+					<categoryExpression><![CDATA[$F{Course name}]]></categoryExpression>
+					<valueExpression><![CDATA[$F{Enrolled student}]]></valueExpression>
+					<labelExpression><![CDATA[$F{Course name}]]></labelExpression>
+				</series>
+			</dataset>
+			<plot backgroundAlpha="3.0" categoryAxisLabelColor="#000000" categoryAxisTickLabelColor="#FFFFFF" categoryAxisVerticalTickLabels="false" categoryAxisLineColor="#000000" valueAxisLabelColor="#000000" valueAxisTickLabelColor="#000000" valueAxisLineColor="#000000" showTickLabels="true">
+				<categoryAxisLabelExpression><![CDATA["Course Name"]]></categoryAxisLabelExpression>
+				<categoryAxisLabelFont fontSize="12.0"/>
+				<categoryAxisTickLabelFont fontSize="0.0"/>
+				<valueAxisLabelExpression><![CDATA["Enrolled Student"]]></valueAxisLabelExpression>
+				<valueAxisLabelFont fontSize="12.0"/>
+				<itemLabel/>
+				<seriesColor order="0" color="#8170DC"/>
+				<seriesColor order="1" color="#107575"/>
+				<seriesColor order="2" color="#2FB9EC"/>
+				<seriesColor order="3" color="#37E71D"/>
+				<seriesColor order="4" color="#FF122E"/>
+				<seriesColor order="5" color="#96AB22"/>
+				<seriesColor order="6" color="#09B19E"/>
+				<seriesColor order="7" color="#FF9F1C"/>
+				<seriesColor order="8" color="#FF66B2"/>
+				<seriesColor order="9" color="#6A0DAD"/>
+				<seriesColor order="10" color="#00CED1"/>
+				<seriesColor order="11" color="#FFD700"/>
+			</plot>
+			<box style="Detail">
+				<pen lineWidth="1.0"/>
+			</box>
+		</element>
+		<element kind="textField" uuid="094459bb-9323-48f4-9af4-482fd315e157" x="360" y="490" width="219" height="30" fontSize="15.0">
+			<expression><![CDATA["Enrolled students in courses"]]></expression>
+		</element>
+	</summary>
+</jasperReport>

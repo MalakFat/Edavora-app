@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="950.0" styleClass="backgroundmain" stylesheets="@SLogin.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CLogin">
+   <children>
+
+      <!-- Top Image -->
+      <ImageView fitHeight="281.0" fitWidth="313.0" layoutX="81.0" layoutY="-16.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@top.png" />
+         </image>
+      </ImageView>
+
+      <!-- Username Field -->
+      <TextField fx:id="emailField" layoutX="113.0" layoutY="198.0" prefHeight="40.0" prefWidth="235.0" promptText="Email" style="-fx-background-radius: 50;">
+         <font>
+            <Font name="Times New Roman" size="15.0" />
+         </font>
+      </TextField>
+
+      <!-- Password Field (hidden) -->
+      <PasswordField fx:id="currentPasswordField" layoutX="113.0" layoutY="252.0" prefHeight="40.0" prefWidth="235.0" promptText="password" style="-fx-background-radius: 30; -fx-border-radius: 30;">
+         <font>
+            <Font name="Times New Roman" size="15.0" />
+         </font>
+      </PasswordField>
+
+      <!-- Visible Password TextField -->
+      <TextField fx:id="currentPasswordTextField" layoutX="113.0" layoutY="252.0" managed="false" prefHeight="40.0" prefWidth="235.0" promptText="password" style="-fx-background-radius: 30; -fx-border-radius: 30;" visible="false">
+         <font>
+            <Font name="Times New Roman" size="15.0" />
+         </font>
+      </TextField>
+
+      <!-- Login Button -->
+      <Button fx:id="login" contentDisplay="CENTER" layoutX="177.0" layoutY="322.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="34.0" prefWidth="115.0" style="-fx-background-color: #bba0c3; -fx-background-radius: 15; -fx-border-radius: 15;" text="login" textAlignment="CENTER" textFill="#2d2152">
+         <font>
+            <Font name="Serif Bold" size="18.0" />
+         </font>
+      </Button>
+
+      <!-- Forgot Password -->
+      <Button layoutX="182.0" layoutY="362.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="98.0" style="-fx-background-color: transparent;" text="Forgot password ?" textFill="WHITE">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
+
+      <!-- Icons -->
+      <ImageView fitHeight="34.0" fitWidth="35.0" layoutX="70.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true" styleClass="user">
+         <image>
+            <Image url="@profile-user%20(1).png" />
+         </image>
+      </ImageView>
+
+      <ImageView fitHeight="34.0" fitWidth="34.0" layoutX="70.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true" styleClass="lock">
+         <image>
+            <Image url="@lock.png" />
+         </image>
+      </ImageView>
+
+      <!-- Social Media Buttons -->
+      <HBox layoutX="117.0" layoutY="422.0" prefHeight="34.0" prefWidth="235.0" spacing="25.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#openWebsite" prefHeight="34.0" prefWidth="34.0" style="-fx-background-radius: 50; -fx-background-color: transparent;" styleClass="emil" />
+            <Button mnemonicParsing="false" onAction="#openlinked" prefHeight="34.0" prefWidth="34.0" style="-fx-background-radius: 50; -fx-background-color: transparent;" styleClass="linked" />
+            <Button mnemonicParsing="false" onAction="#openface" prefHeight="34.0" prefWidth="34.0" styleClass="facebook" />
+            <Button mnemonicParsing="false" onAction="#openinsta" prefHeight="34.0" prefWidth="34.0" style="-fx-background-radius: 50; -fx-background-color: transparent;" styleClass="insta" />
+         </children>
+      </HBox>
+      <Button layoutX="113.0" layoutY="292.0" mnemonicParsing="false" onAction="#creatAccount" prefHeight="22.0" prefWidth="115.0" style="-fx-background-color: transparent;" text="Create new account" textFill="WHITE">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
+
+      <!-- Eye Button to Show/Hide Password -->
+      <Button fx:id="togglePasswordVisibilityButton" layoutX="309.0" layoutY="260.0" mnemonicParsing="false" onAction="#togglePasswordVisibility" prefHeight="22.0" prefWidth="13.0" style="-fx-background-color: Transparent;">
+         <graphic>
+            <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@eye (1).png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+
+   </children>
+</Pane>

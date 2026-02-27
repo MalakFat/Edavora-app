@@ -1,0 +1,12 @@
+.user-pane > .title {
+    -fx-background-color: 	#271048;  
+
+
+}
+		.imageadd{
+			-fx-background-image: url("imageadd.png");
+		-fx-background-size:200px 200px;	
+		-fx-background-repeat: no-repeat;
+	
+				
+		}

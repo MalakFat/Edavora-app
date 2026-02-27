@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="mainpane" prefHeight="174.0" prefWidth="718.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <effect>
+      <DropShadow />
+   </effect>
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="155.0" layoutX="4.0" layoutY="11.0" stroke="#271048" strokeType="OUTSIDE" strokeWidth="2.0" width="712.0" />
+      <ImageView fitHeight="67.0" fitWidth="36.0" layoutX="366.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" styleClass="bookk">
+         <image>
+            <Image url="@bookk.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="67.0" fitWidth="36.0" layoutX="366.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true" styleClass="t">
+         <image>
+            <Image url="@training.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="courseName" layoutX="419.0" layoutY="28.0" prefHeight="25.0" prefWidth="221.0" text="java script" textFill="#28114b">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="TeacherName" layoutX="419.0" layoutY="75.0" prefHeight="25.0" prefWidth="197.0" text="yaqeen" textFill="#28114b">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="67.0" fitWidth="36.0" layoutX="366.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true" styleClass="clock">
+         <image>
+            <Image url="@clock.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="courseTime" layoutX="419.0" layoutY="124.0" prefHeight="25.0" prefWidth="165.0" text="09:00_10:30" textFill="#28114b">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="arrowButton" layoutX="666.0" layoutY="123.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="44.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="27.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" styleClass="next">
+               <image>
+                  <Image url="@next(1).png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <ImageView fx:id="imgView" fitHeight="141.0" fitWidth="173.0" layoutX="103.0" layoutY="20.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" styleClass="photo">
+         <image>
+            <Image url="@image.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>

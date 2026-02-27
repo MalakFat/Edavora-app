@@ -1,0 +1,12 @@
+.key {
+    -fx-background-image: url("key (2).png");
+    -fx-background-size: cover;
+}
+.eye {
+    -fx-background-image: url("eye.png");
+    -fx-background-size: cover;
+}
+.profile {
+    -fx-background-image: url("user.png");
+    -fx-background-size: cover;
+}

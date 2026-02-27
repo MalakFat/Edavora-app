@@ -1,0 +1,61 @@
+.backgroundmain{
+	-fx-background-image: url("0001.jpg");
+	-fx-background-size:cover;
+}
+.facebook{
+	-fx-background-image: url("facebook.png");
+		-fx-background-size:cover;
+		-fx-background-color:transparent;
+		-fx-background-radius:50;
+
+}
+.linked{
+	-fx-background-image: url("linkedin.png");
+		-fx-background-size:cover;
+		-fx-background-color:transparent;
+		-fx-background-radius:50;
+
+}
+.emil{
+	-fx-background-image: url("email.png");
+		-fx-background-size:cover;
+		-fx-background-color:transparent;
+		-fx-background-radius:50;
+
+}
+.insta{
+		-fx-background-image: url("instagram.png");
+		-fx-background-size:cover;
+		-fx-background-color:transparent;
+		-fx-background-radius:50;
+	}
+	
+.user{
+	-fx-background-image: url("profile-user (1).png");
+	-fx-background-size:cover;
+	-fx-background-color:transparent;
+		-fx-background-radius:50;
+	}
+	.lock{
+		-fx-background-image: url("lock.png");
+		-fx-background-size:cover;
+		-fx-background-color:transparent;
+		-fx-background-radius:50;
+		}
+		
+.date-picker {
+    -fx-border-color: gray;
+    -fx-border-width: 1;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+
+.date-picker .text-field {
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+
+.date-picker .arrow-button {
+    -fx-background-radius: 10;
+}
+		

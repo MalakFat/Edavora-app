@@ -1,0 +1,48 @@
+/* لتغيير لون الخلفية للتبويبات */
+.tab-pane .tab-header-area {
+    -fx-background-color: #dddddd; /* لون خلفية الشريط */
+}
+
+.tab-pane .tab {
+    -fx-background-color: #aaaaaa; /* لون التبويبة العادية */
+	
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color:  #271048; 
+}
+.tab .tab-label {
+    -fx-text-fill: black; /* أو white حسب خلفيتك */
+}
+
+.tab:selected .tab-label {
+    -fx-text-fill: white;
+}
+.tab {
+    -fx-padding: 3 20 3 20; /* top, right, bottom, left */
+    -fx-background-insets: 0;
+
+
+    }
+	  
+
+
+.tab .tab-label {
+    -fx-font-size: 15px;
+    -fx-padding: 2px;
+}
+
+.check-box .box {
+    -fx-border-color: gray;       /* لون الحدود */
+    -fx-border-width: 1px;       /* سماكة الحدود */
+    -fx-border-radius: 3px;      /* زوايا دائرية */
+}
+
+.check-box:selected .box {
+    -fx-border-color: #271048;      /* لون الحدود عند التحديد */
+}
+
+.check-box:selected .mark {
+    -fx-background-color: #271048;  /* لون علامة الصح */
+}
+

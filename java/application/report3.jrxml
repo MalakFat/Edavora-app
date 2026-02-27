@@ -1,0 +1,73 @@
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
+<jasperReport name="report3" language="java" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e7eebaa4-068b-407f-bf7a-d4c2e72a1292">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="edvora"/>
+	<style name="Title" fontName="Arial" fontSize="26.0" bold="true"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18.0"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12.0" bold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12.0"/>
+	<query language="SQL"><![CDATA[SELECT 
+    u.firstname || ' ' || u.lastname AS teacher_name,
+    COUNT(c.course_id) AS course_count
+FROM public."User" u
+JOIN public.teacher t ON u.email = t.email
+LEFT JOIN public.course c ON t.email = c.email_teacher
+GROUP BY u.firstname, u.lastname]]></query>
+	<field name="teacher_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="teacher_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="teacher_name"/>
+	</field>
+	<field name="course_count" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="course_count"/>
+		<property name="com.jaspersoft.studio.field.label" value="course_count"/>
+	</field>
+	<group name="Group1">
+		<expression><![CDATA[$F{teacher_name}]]></expression>
+		<groupHeader>
+			<band height="38">
+				<element kind="textField" uuid="53b06611-b6d2-4c3c-a10e-2b349a2d73d3" x="13" y="6" width="170" height="24" forecolor="#461034" blankWhenNull="false" bold="true" style="SubTitle">
+					<expression><![CDATA[$F{teacher_name}]]></expression>
+				</element>
+				<element kind="textField" uuid="62aa69c1-2611-45a6-84c4-4f7d570ec093" x="310" y="6" width="170" height="20" forecolor="#461034" fontSize="16.0" bold="true" style="SubTitle">
+					<expression><![CDATA[$F{course_count}]]></expression>
+				</element>
+				<element kind="line" uuid="f367c019-9cb7-431c-8713-5a96f9b889aa" positionType="FixRelativeToBottom" x="0" y="37" width="555" height="1">
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</element>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Group2">
+		<expression><![CDATA[$F{course_count}]]></expression>
+		<groupHeader>
+			<band height="3"/>
+		</groupHeader>
+	</group>
+	<background splitType="Stretch"/>
+	<title height="213" splitType="Stretch">
+		<element kind="image" uuid="40fb0768-a4e4-49b0-afb6-cfdbd9ee0d9b" x="-20" y="-22" width="595" height="235">
+			<expression><![CDATA["src/main/java/application/EDVORA.png"]]></expression>
+		</element>
+	</title>
+	<pageHeader splitType="Stretch"/>
+	<columnHeader height="41" splitType="Stretch">
+		<element kind="line" uuid="d69c6691-e92e-45c5-bf2d-c1dc15dabb91" positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1">
+			<pen lineWidth="0.5" lineColor="#999999"/>
+		</element>
+		<element kind="textField" uuid="610bc9dc-72d1-4ba7-ac4f-432d17a4dcca" x="10" y="-4" width="172" height="39" forecolor="#461034" fontSize="18.0" bold="true">
+			<expression><![CDATA["Teacher name :"]]></expression>
+		</element>
+		<element kind="textField" uuid="855297a3-1d26-4f2e-ab9a-5a3a30f7dabb" x="310" y="-4" width="239" height="39" forecolor="#461034" fontSize="18.0" bold="true">
+			<expression><![CDATA["Number of courses taught :"]]></expression>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="2" splitType="Stretch"/>
+	</detail>
+	<columnFooter splitType="Stretch"/>
+	<pageFooter height="1" splitType="Stretch"/>
+	<summary splitType="Stretch"/>
+</jasperReport>
