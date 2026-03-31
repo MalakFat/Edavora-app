@@ -39,8 +39,7 @@ The system is built on a complex relational schema involving:
 * **1:N Relationships:** Courses to Lectures, Slides, and Links.
 
 ## 📸 Demo
-*(Add a GIF or link to your demo video here)*
-
+(https://drive.google.com/file/d/1ClENwRTzwo6vowpLE_gn5h5t5y2OE3_A/view?usp=drive_link)
 ## ⚙️ Installation & Setup
 1. Clone the repository:
    ```bash
